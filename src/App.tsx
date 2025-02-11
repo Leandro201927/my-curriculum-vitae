@@ -1,4 +1,17 @@
-import { Briefcase, Mail, MapPin, Globe2, GraduationCap, Code, User, Phone, Linkedin } from 'lucide-react';
+// import { IconBrandAngular, IconBrandAws, IconBrandCss3, IconBrandHtml5, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandThreejs, IconBrandTypescript } from '@tabler/icons-react';
+import AngularIcon from './assets/angular.svg';
+import AwsIcon from './assets/aws.svg';
+import CssIcon from './assets/css.svg';
+import HtmlIcon from './assets/html.svg';
+import JavascriptIcon from './assets/javascript.svg';
+import NodejsIcon from './assets/nodejs.svg';
+import PhpIcon from './assets/php.svg';
+import ReactIcon from './assets/react.svg';
+import SassIcon from './assets/sass.svg';
+import ThreejsIcon from './assets/threejs.svg';
+import TypescriptIcon from './assets/typescript.svg';
+import ProfileCV from './assets/profilecv.jpg';
+import { Briefcase, Mail, MapPin, Globe2, Code, User, Phone, Linkedin, GraduationCap, LandPlot, Handshake } from 'lucide-react';
 
 interface RoleExperience {
   position: string;
@@ -9,6 +22,7 @@ interface RoleExperience {
 
 interface ExperienceByCompany {
   company: string;
+  icon?: JSX.Element;
   experience: RoleExperience[];
 }
 
@@ -17,6 +31,13 @@ interface SideProject {
   period: string;
   description: string;
   techStack: string[];
+}
+
+interface ProfessionalReference {
+  name: string;
+  position: string;
+  company: string;
+  phone: string;
 }
 
 function App() {
@@ -29,29 +50,31 @@ function App() {
       company: 'WeKall',
       experience: [
         {
-          position: 'React Developer',
+          position: 'React.js Developer',
           period: 'Feb. 2022 - Present',
           achievements: [
-            'Collaboration in the creation of a <strong> web phone (caller-like app)</strong>.',
-            'Redesign of a <strong>Contact Center</strong> old platform with more than <strong>200+ components</strong>.',
-            'Created/maintained administration <strong>PBX portal</strong> with more than <strong>80+ components</strong>.',
-            'Improved portals loading speed up to <strong>7x</strong>.'
+            'Collaboration in the creation of a <strong>web phone (caller-like app)</strong> using best practices with <strong>10+</strong> integrations and <strong>70+</strong> components and functionalities.',
+            'Collaboration in the creation of a <strong>chat/chatbot web app</strong> integrating WhatsApp, drag-and-drop customizable call flows and more.',
+            'Redesign of a <strong>Contact Center</strong> main platform with more than <strong>200+ components</strong> and functionalities.',
+            'Redesign of a <strong>AI Insights web app</strong> with more than <strong>50+ components</strong> and functionalities.',
+            'Collaborated in the creation of an administration <strong>PBX portal</strong> with more than <strong>150+ components and functionalities</strong> in both React portals.',
+            '7x times faster portal loading improvement.'
           ],
-          techStack: ['React', 'TypeScript', 'AWS', 'nodeJS']
+          techStack: ['React', 'TypeScript', 'SASS', 'AWS']
         },
         {
-          position: 'Wordpress/Javascript Full-Stack Developer',
+          position: 'WordPress + JavaScript Full-Stack Developer',
           period: 'Sep. 2020 - Feb. 2022',
           achievements: [
-            'Created <strong> 2 WordPress websites </strong> built from scratch (<a href="https://wekall.co">wekall.co</a>, <a href="https://bidda.co">bidda.co</a>).',
-            'I completely redesigned 2 knowledge base platforms with <strong>SASS</strong>.',
+            'I created <strong>2 WordPress websites</strong> built from scratch (wekall.co, bidda.co).',
+            'I completely redesigned <strong>2 knowledge base platforms</strong> with SASS.',
             'Collaboration in <strong>+20 integrations</strong> with multiple nodeJS APIs and front-end sites.',
-            '<strong>+120</strong> responsive and cross-browser compatible pages created / maintained.',
-            '<strong>2.7x</strong> times faster WordPress page loading improvement (from <strong>5s</strong> to <strong>1.8s - 2s</strong> average).',
-            'From <strong>10-15</strong> to <strong>99</strong> Google PageSpeed Insights score in <strong>2</strong> entire websites using multiple WPO techniques.',
-            'From <strong>6k</strong> to <strong>28k</strong> monthly visits in 6 months in <strong><a href="https://wekall.co">wekall.co</a></strong> using <strong>SEO</strong> techniques.',
+            '<strong>120</strong> responsive and cross-browser compatible pages created / maintained.',
+            '<strong>2.7x</strong> times faster WordPress page loading improvement (from 5s to 1.8s - 2s average).',
+            'From <strong>10-15</strong> to <strong>99 points</strong> in PageSpeed Insights in 2 entire websites using multiple WPO techniques.',
+            'From <strong>6k</strong> to <strong>28k impressions</strong> in 6 months applying SEO techniques.'
           ],
-          techStack: ['WordPress', 'SASS', 'PHP', 'AWS', 'nodeJS']
+          techStack: ['JavaScript', 'WordPress', 'SASS', 'PHP', 'AWS', 'nodeJS']
         },
         {
           position: 'Full-Stack Developer',
@@ -71,7 +94,22 @@ function App() {
             'I created an <strong>Alexa Skill program</strong> that returns an extension based on a company worker\'s name.',
             'Built a <strong>Serverless REST API</strong> that requests for XML data to get the desired extension.'
           ],
-          techStack: ['Amazon Alexa', 'nodeJS', 'JavaScript', 'AWS']
+          techStack: ['nodeJS', 'JavaScript', 'AWS', 'Amazon Alexa']
+        }
+      ]
+    },
+    {
+      company: 'Movier Instalaciones',
+      experience: [
+        {
+          position: 'WordPress/ThreeJS Developer (Freelance)',
+          period: 'Jul. 2023 - Feb. 2024',
+          achievements: [
+            'Designed from scratch an <strong>UI/UX website</strong> in Figma.',
+            'Created a <strong>3D website</strong> from scratch with <strong>SEO optimizations</strong> (<a href="https://movier-instalaciones.com/">movier-instalaciones.com</a>).',
+            'Developed an <strong>HSE mobile private-app (ios, android)</strong> in Flutter, their new tool used to boost worker productivity.'
+          ],
+          techStack: ['WordPress', 'SASS', 'Flutter']
         }
       ]
     },
@@ -79,32 +117,59 @@ function App() {
       company: 'CPROC L.T.D.A',
       experience: [
         {
-          position: 'WordPress/Flutter Developer (Freelance)',
+          position: 'WordPress / Mobile Developer (Freelance)',
           period: 'Jan. 2023 - Jun. 2024',
           achievements: [
-            'Designed from scratch a <strong>UI/UX</strong> website/mobile app in Figma.',
-            'Created an entire <strong>WordPress website</strong> from scratch with <strong>SEO optimizations</strong>. <a href="https://cproc.co">(cproc.co)</a>',
-            'Improved portal loading speed by <strong>7x</strong>.'
+            'I designed from scratch an <strong>UI/UX website</strong> in Figma.',
+            'I created an entire <strong>WordPress website</strong> from scratch with <strong>SEO optimizations</strong> (<a href="https://cproc.co">cproc.co</a>).',
+            'Improved performance .'
           ],
-          techStack: ['React', 'TypeScript', 'AWS', 'nodeJS']
-        },
+          techStack: ['WordPress', 'SASS', 'Flutter']
+        }
       ]
-    },
+    }
   ]
 
   const sideProjects: SideProject[] = [
     {
+      projectName: 'L&D CORP',
+      period: '2024',
+      description: '<strong>3D website</strong> (Blender + Figma assets created by me). This is my own brand I am currently working. <br/> (<a href="https://lyd-corp.com">Check lyd-corp.com</a>)',
+      techStack: ['React Native', 'Expo', 'ThreeJS', 'CannonJS', 'Blender']
+    },
+    {
       projectName: 'Tennis 3D',
       period: '2022',
-      description: 'Sports 3D multiplayer web and React Native (Expo) mobile game consuming WebGL technologies with ThreeJS. Uses physics simulation, advanced shadows, lighting and post-processing to give it a touch of realism with the help of self-built 3D custom Blender models.',
+      description: 'Sports <strong>3D</strong> multiplayer <strong>web</strong> and React Native (Expo) <strong>mobile game</strong> consuming <strong>WebGL</strong> technologies with <strong>ThreeJS</strong>. Uses physics simulation, advanced shadows, lighting and post-processing to give it a touch of realism with the help of self-built 3D custom Blender models.',
       techStack: ['React Native', 'Expo', 'ThreeJS', 'CannonJS', 'Blender']
     },
     {
       projectName: 'Rutas InterValle',
       period: '2019',
-      description: 'Uber-like application with real payments (Google Pay integration) for buses that allow you to reserve bus seats in real time, with bus geolocation functionality to determine what time your booked bus arrives according to the station closest to your location.',
-      techStack: ['Java', 'Android Studio', 'Google Cloud Platform']
+      description: '<strong>Uber-like app</strong> with real payments (Google Pay integration) for buses that allow you to reserve bus seats in real time, with bus geolocation functionality to determine what time your booked bus arrives according to the station closest to your location.',
+      techStack: ['Java', 'Android Studio', 'Google Cloud']
     },
+    {
+      projectName: 'AI Image Recognizer',
+      period: '2018',
+      description: 'Web (PHP) and mobile (Android/Java) application that uses Google Cloud Vision to retrieve a list of found objects that GCV (Google Cloud Vision) reads giving an input image, with a percentage of certainty.',
+      techStack: ['Java', 'Android Studio', 'Google Cloud Vision', 'PHP']
+    }
+  ];
+
+  const professionalReferences: ProfessionalReference[] = [
+    {
+      name: 'David Esteban Erira',
+      position: 'Senior Full Stack Developer',
+      company: 'WeKall',
+      phone: '+57 (314) 859 3795'
+    },
+    {
+      name: 'Javier Cifuentes',
+      position: 'Business Manager',
+      company: 'CPROC',
+      phone: '+57 (318) 313 8159'
+    }
   ];
 
   return (
@@ -116,9 +181,9 @@ function App() {
           <div className="absolute bg-[#F6F6F6] flex w-full mt-8">
             <div className="flex items-center md:w-1/3 justify-center">
               <img 
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&h=400&fit=crop"
+                src={ProfileCV}
                 alt="Profile"
-                className="w-48 h-48 rounded-full border-4 border-white"
+                className="w-48 h-48 rounded-full border-4 border-black"
               />
             </div>
             <div className="flex items-center md:w-2/3">
@@ -149,15 +214,14 @@ function App() {
 
           {/* Left Sidebar */}
           <div className="w-full md:w-1/3 bg-[#2D3741] text-white px-8 pt-[280px]">
-
             {/* Profile Section */}
             <section className="mb-8">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <User size={20} />
                 Profile
               </h2>
-              <p className="text-gray-300">
-                5+ years of proven experience as a Full-stack developer. Created/maintained more than 10+ portals, with development achievements by the use of good practices, clean code, performance being an important one.
+              <p className="text-gray-300 text-[15px]" style={{ lineHeight: '130%' }}>
+                <strong>5+</strong> years of proven experience as a <strong>Full-Stack</strong> developer. Created/maintained more than <strong>10+</strong> web portals, <strong>15+</strong> mobile apps, with development achievements by the use of good practices, clean code, performance but the most important one, my ability to <strong>adapt</strong> to any technology in a <strong>record time</strong>. My dedication has resulted in learning and creating multiple side projects in <strong>3D</strong>, <strong>Blockchain</strong>, <strong>Mobile apps</strong>, <strong>AI</strong> and more.
               </p>
             </section>
 
@@ -168,32 +232,142 @@ function App() {
                 Hard Skills
               </h2>
               <div className="flex flex-wrap gap-2">
-                {['JavaScript', 'TypeScript', 'React', 'nodeJS', 'AWS', 'PHP'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    {skill}
-                  </span>
-                ))}
+                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                  {/* <JavascriptIcon /> */}
+                  <img src={JavascriptIcon} alt="JavascriptIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>JavaScript</span>
+                </div>
+                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                  {/* <TypescriptIcon /> */}
+                  <img src={TypescriptIcon} alt="TypescriptIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>TypeScript</span>
+                </div>
+                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                  {/* <PhpIcon /> */}
+                  <img src={PhpIcon} alt="PhpIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>PHP</span>
+                </div>
+                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                  {/* <HtmlIcon /> */}
+                  <img src={HtmlIcon} alt="HtmlIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>HTML</span>
+                </div>
+                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                  {/* <CssIcon /> */}
+                  <img src={CssIcon} alt="CssIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>CSS</span>
+                </div>
+                {/* <div className="flex items-center gap-2">
+                  <BrandSolidity size={20} />
+                  <span>Solidity</span>
+                </div> */}
+              </div>
+              <h2 className="flex items-center gap-2 text-xl font-semibold mb-4 mt-8">
+                <Code size={20} />
+                Frameworks <span className='text-[#90BBFB]'>&&</span> Others
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <NodejsIcon /> */}
+                  <img src={NodejsIcon} alt="NodejsIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>nodeJS</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <ReactIcon /> */}
+                  <img src={ReactIcon} alt="ReactIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>React</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <AngularIcon /> */}
+                  <img src={AngularIcon} alt="AngularIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>Angular</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <SassIcon /> */}
+                  <img src={SassIcon} alt="SassIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>SASS</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <AwsIcon /> */}
+                  <img src={AwsIcon} alt="AwsIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>AWS</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <ThreejsIcon /> */}
+                  <img src={ThreejsIcon} alt="ThreejsIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>ThreeJS</span>
+                </div>
               </div>
             </section>
 
             {/* Languages Section */}
             <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">Languages</h2>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Globe2 size={16} />
-                  <span>English (Professional)</span>
+              <div className="flex items-center gap-2 mb-4">
+                <Globe2 size={20} />
+                <h2 className="text-xl font-semibold">Languages</h2>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-sm">
+                  <div className="px-1 py-1 rounded-lg flex bg-[#85FF00]"></div>
+                  <div className='flex flex-col'>
+                    <span className='font-bold'>English</span>
+                    <span className='text-sm'>(Professional)</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Globe2 size={16} />
-                  <span>Spanish (Native)</span>
+                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-sm">
+                  <div className="px-1 py-1 rounded-lg flex bg-[#FF9900]"></div>
+                  <div className='flex flex-col'>
+                    <span className='font-bold'>Spanish</span>
+                    <span className='text-sm'>(Native)</span>
+                  </div>
                 </div>
               </div>
+            </section>
+
+            {/* Soft Skills Section */}
+            <section className="mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <Handshake size={20} />
+                <h2 className="text-xl font-semibold">Soft Skills</h2>
+              </div>
+              <ul className="list-disc list-inside text-gray-300 text-[15px] space-y-2">
+                <li>Incredible ability to learn/adapt to any technology in record time 🏆</li>
+                <li> <strong>Creativity:</strong> wherever I go, my mind vibrates with creativity and innovation. 🧠</li>
+                <li> <strong>Empathy:</strong> I put myself in the consumer's shoes to develop the best possible UX (User Experience).</li>
+                <li> <strong>Teamwork:</strong> I love pair programming and teamwork where there is a goal and vision.</li>
+              </ul>
+            </section>
+
+            {/* Education Section */}
+            <section className="mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <GraduationCap size={20} />
+                <h2 className="text-xl font-semibold">Education</h2>
+              </div>
+              <ul className="list-disc list-inside text-gray-300 text-[15px] space-y-2">
+                <li>(scheduled to finish in 2025) Information Systems Technologist, in Antonio Jose Camacho’s university.</li>
+                <li>(2019) Corporación Educativa Adventista: High School degree with an emphasis on programming.</li>
+              </ul>
+            </section>
+
+            {/* Professional Update Section */}
+            <section className="mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <LandPlot size={20} />
+                <h2 className="text-xl font-semibold">Professional Update</h2>
+              </div>
+              <ul className="list-disc list-inside text-gray-300 text-[15px] space-y-2">
+                <li> <strong>Udemy (2022):</strong> Rigging + IK (Inverse Kinematics) for ThreeJS.</li>
+                <li> <strong>ThreeJS Journey (2022):</strong> create advanced 3D projects based on JavaScript and WebGL with ThreeJS.</li>
+                <li> <strong>Platzi (2022):</strong> Time management and productivity for Startups course.</li>
+                <li> <strong>Udemy (2021):</strong> Solidity / Smarts Contracts course for Blockchain projects.</li>
+                <li> <strong>Voximplant (2021):</strong> Basic Training Course, automate IVR call flow using VoIP services.</li>
+              </ul>
             </section>
           </div>
 
           {/* Right Sidebar */}
-          <div className="w-full md:w-2/3 px-8 pt-[280px] gap-16 flex flex-col">
+          <div className="w-full md:w-2/3 px-8 pt-[280px] gap-12 flex flex-col">
 
             {/* Experience Section */}
             <section>
@@ -230,21 +404,8 @@ function App() {
               }
             </section>
 
-            {/* Education Section */}
-            {/* <section>
-              <h2 className="text-2xl font-bold text-[#2D3741] mb-6 flex items-center gap-2">
-                <GraduationCap size={24} />
-                Education
-              </h2>
-              
-              <div className="border-l-2 border-gray-200 pl-4">
-                <h3 className="text-xl font-semibold">Information Systems Technologist</h3>
-                <p className="text-gray-600">Antonio Jose Camacho's university • 2025 (Expected)</p>
-              </div>
-            </section> */}
-
             {/* Side Projects */}
-            <section className="mb-8">
+            <section>
               <h2 className="text-2xl font-bold text-[#2D3741] mb-6 flex items-center gap-2">
                 <Briefcase size={24} />
                 Side Projects
@@ -265,6 +426,22 @@ function App() {
                   </div>
                 ))
               }
+            </section>
+
+            {/* Professional References */}
+            <section className='mb-8'>
+              <h2 className="text-2xl font-bold text-[#2D3741] flex mb-6 items-center gap-2">
+                Professional References
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {professionalReferences.map((ref, index) => (
+                  <div key={index} className="border p-4 rounded-lg shadow-sm">
+                    <p className="text-lg font-semibold text-gray-700">{ref.name}</p>
+                    <p className="text-gray-500">{ref.position} in {ref.company}</p>
+                    <p className="text-gray-500">{ref.phone}</p>
+                  </div>
+                ))}
+              </div>
             </section>
           </div>
         </div>

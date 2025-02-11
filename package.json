@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.30.0",
     "lucide-react": "^0.344.0",
+    "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "simple-icons": "^14.6.0"
@@ -30,5 +32,26 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
+  },
+  "baseUrl": "./src",
+  "paths": {
+    "@assets/*": [
+      "assets/* "
+    ],
+    "@components/*": [
+      "components/*"
+    ],
+    "@features/*": [
+      "features/*"
+    ],
+    "@pages/*": [
+      "pages/*"
+    ],
+    "@theme/*": [
+      "@theme/*"
+    ],
+    "@utils/*": [
+      "@utils/*"
+    ]
   }
 }
