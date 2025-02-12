@@ -254,7 +254,7 @@ function App() {
           </div>
 
           {/* Left Sidebar */}
-          <div className="w-full md:w-1/3 bg-[#2D3741] text-white px-8 pt-[280px]">
+          <div className="left-sidebar w-full md:w-1/3 bg-[#2D3741] text-white px-8 pt-[280px]">
             {/* Profile Section */}
             <section className="print-avoid-break">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">

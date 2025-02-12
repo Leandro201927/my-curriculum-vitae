@@ -28,6 +28,10 @@ a {
     .print-no-shadow {
         box-shadow: none !important;
     }
+
+    .left-sidebar {
+        border-radius: 0 !important;
+    }
 }
 
 /* Force background colors and images to print */
