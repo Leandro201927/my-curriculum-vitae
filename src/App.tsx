@@ -1,4 +1,6 @@
-// import { IconBrandAngular, IconBrandAws, IconBrandCss3, IconBrandHtml5, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandThreejs, IconBrandTypescript } from '@tabler/icons-react';
+import { useRef } from 'react';
+import { Briefcase, Mail, MapPin, Globe2, Code, User, Phone, Linkedin, GraduationCap, LandPlot, Handshake, Printer } from 'lucide-react';
+import { useReactToPrint } from 'react-to-print';
 import AngularIcon from './assets/angular.svg';
 import AwsIcon from './assets/aws.svg';
 import CssIcon from './assets/css.svg';
@@ -11,7 +13,10 @@ import SassIcon from './assets/sass.svg';
 import ThreejsIcon from './assets/threejs.svg';
 import TypescriptIcon from './assets/typescript.svg';
 import ProfileCV from './assets/profilecv.jpg';
-import { Briefcase, Mail, MapPin, Globe2, Code, User, Phone, Linkedin, GraduationCap, LandPlot, Handshake } from 'lucide-react';
+import WeKallShortLogo from './assets/wekall-short-logo.svg';
+import SimplicaShortLogo from './assets/simplica-short-logo.png';
+import MovierInstalacionesShortLogo from './assets/movier-instalaciones-short-logo.svg';
+import CPROCShortLogo from './assets/cproc-short-logo.svg';
 
 interface RoleExperience {
   position: string;
@@ -41,6 +46,11 @@ interface ProfessionalReference {
 }
 
 function App() {
+  const printRef = useRef<HTMLDivElement>(null);
+  const handlePrint = useReactToPrint({
+    contentRef: printRef
+  });
+
   const mail = 'lea.dev.web@gmail.com';
   const phone = '+57 300 700 7525'
   const linkedin = 'https://www.linkedin.com/in/cesar-leandro-correa-gomez/';
@@ -48,6 +58,7 @@ function App() {
   const experiences: ExperienceByCompany[] = [
     {
       company: 'WeKall',
+      icon: <img src={WeKallShortLogo} alt="WeKall" className="w-24 pr-1 max-h-[30px] w-auto" />,
       experience: [
         {
           position: 'React.js Developer',
@@ -58,7 +69,7 @@ function App() {
             'Redesign of a <strong>Contact Center</strong> main platform with more than <strong>200+ components</strong> and functionalities.',
             'Redesign of a <strong>AI Insights web app</strong> with more than <strong>50+ components</strong> and functionalities.',
             'Collaborated in the creation of an administration <strong>PBX portal</strong> with more than <strong>150+ components and functionalities</strong> in both React portals.',
-            '7x times faster portal loading improvement.'
+            '<strong>7x</strong> times faster portal loading improvement.'
           ],
           techStack: ['React', 'TypeScript', 'SASS', 'AWS']
         },
@@ -66,13 +77,13 @@ function App() {
           position: 'WordPress + JavaScript Full-Stack Developer',
           period: 'Sep. 2020 - Feb. 2022',
           achievements: [
-            'I created <strong>2 WordPress websites</strong> built from scratch (wekall.co, bidda.co).',
-            'I completely redesigned <strong>2 knowledge base platforms</strong> with SASS.',
+            'Created <strong>2 WordPress websites</strong> built from scratch: <a href="https://wekall.co/">wekall.co</a>, bidda.co (down).',
+            'Redesigned <strong>2 knowledge base platforms</strong> with SASS.',
             'Collaboration in <strong>+20 integrations</strong> with multiple nodeJS APIs and front-end sites.',
             '<strong>120</strong> responsive and cross-browser compatible pages created / maintained.',
-            '<strong>2.7x</strong> times faster WordPress page loading improvement (from 5s to 1.8s - 2s average).',
+            '<strong>2.7x</strong> times faster WordPress page loading improvement (from <strong>5s</strong> to <strong>1.8s - 2s</strong> average).',
             'From <strong>10-15</strong> to <strong>99 points</strong> in PageSpeed Insights in 2 entire websites using multiple WPO techniques.',
-            'From <strong>6k</strong> to <strong>28k impressions</strong> in 6 months applying SEO techniques.'
+            'From <strong>6k</strong> to <strong>28k impressions</strong> in <strong>6 months</strong> applying SEO techniques.'
           ],
           techStack: ['JavaScript', 'WordPress', 'SASS', 'PHP', 'AWS', 'nodeJS']
         },
@@ -80,9 +91,9 @@ function App() {
           position: 'Full-Stack Developer',
           period: 'Feb. 2020 - Sep. 2020',
           achievements: [
-            '50+ functionalities created and maintained in an <strong>Angular administration portal</strong>.',
-            'Maintained more than <strong>20+ nodeJS microservices</strong> in AWS environments.',
-            'I created a successful <strong>Click-to-Call widget</strong> for making VoIP calls through web.',
+            '<strong>50+</strong> functionalities created and maintained in an <strong>Angular administration portal</strong>.',
+            'Maintained more than <strong>20+</strong> nodeJS microservices in AWS environments.',
+            'Created a successful <strong>Click-to-Call widget</strong> for making VoIP calls through web.',
             '<strong>+55 HUGO pages</strong> created / maintained.'
           ],
           techStack: ['Angular', 'TypeScript', 'nodeJS', 'JavaScript', 'AWS']
@@ -91,7 +102,7 @@ function App() {
           position: 'Back-end Practitioner',
           period: 'Dec. 2019 - Feb. 2020',
           achievements: [
-            'I created an <strong>Alexa Skill program</strong> that returns an extension based on a company worker\'s name.',
+            'Created an <strong>Alexa Skill program</strong> that returns an extension based on a company worker\'s name.',
             'Built a <strong>Serverless REST API</strong> that requests for XML data to get the desired extension.'
           ],
           techStack: ['nodeJS', 'JavaScript', 'AWS', 'Amazon Alexa']
@@ -99,30 +110,51 @@ function App() {
       ]
     },
     {
-      company: 'Movier Instalaciones',
+      company: 'Simplica',
+      icon: <img src={SimplicaShortLogo} alt="Simplica" className="w-24 ml-[-6px] pr-1 max-h-[40px] w-auto" />,
       experience: [
         {
-          position: 'WordPress/ThreeJS Developer (Freelance)',
+          position: 'Full-Stack Developer (Freelance)',
+          period: 'Mar. 2024 - Present',
+          achievements: [
+            'Created a <strong>Municipal Tax Management web app</strong> with more than <strong>50+ functionalities</strong>',
+            'More than <strong>10+</strong> microservices created and maintained in AWS environments.',
+            'Blocked <strong>100%</strong> traffic from DDOS attacks in AWS in less than <strong>2 hours</strong>.',
+            'Maintained a <strong>Laravel platform</strong> and improved security against DDoS and Fuzzing technices.',
+            'Up to <strong>3x</strong> times faster API response time improvement.' // ley de 1 query, proxies, etc
+          ],
+          techStack: ['React', 'TypeScript', 'SASS', 'AWS', 'Laravel']
+        }
+      ]
+    },
+    {
+      company: 'Movier Instalaciones',
+      icon: <img src={MovierInstalacionesShortLogo} alt="Movier Instalaciones" className="w-24 pr-2 max-h-[40px] w-auto" />,
+      experience: [
+        {
+          position: '3D Web Developer (Freelance)',
           period: 'Jul. 2023 - Feb. 2024',
           achievements: [
-            'Designed from scratch an <strong>UI/UX website</strong> in Figma.',
+            'Designed from scratch an <strong>UI/UX website</strong> in Figma and Blender.',
             'Created a <strong>3D website</strong> from scratch with <strong>SEO optimizations</strong> (<a href="https://movier-instalaciones.com/">movier-instalaciones.com</a>).',
-            'Developed an <strong>HSE mobile private-app (ios, android)</strong> in Flutter, their new tool used to boost worker productivity.'
+            '<strong>8</strong> scenes and more than <strong>15+</strong> 3D models implemented.',
+            '<strong>2x</strong> times faster 3D website loading improvement.'
           ],
-          techStack: ['WordPress', 'SASS', 'Flutter']
+          techStack: ['ThreeJS', 'WordPress', 'SASS']
         }
       ]
     },
     {
       company: 'CPROC L.T.D.A',
+      icon: <img src={CPROCShortLogo} alt="CPROC" className="w-24 max-h-[40px] pr-2 w-auto" />,
       experience: [
         {
           position: 'WordPress / Mobile Developer (Freelance)',
           period: 'Jan. 2023 - Jun. 2024',
           achievements: [
-            'I designed from scratch an <strong>UI/UX website</strong> in Figma.',
-            'I created an entire <strong>WordPress website</strong> from scratch with <strong>SEO optimizations</strong> (<a href="https://cproc.co">cproc.co</a>).',
-            'Improved performance .'
+            'Designed from scratch an <strong>UI/UX website</strong> in Figma.',
+            'Created an entire <strong>WordPress website</strong> from scratch with <strong>SEO optimizations</strong> (<a href="https://cproc.co">cproc.co</a>).',
+            'Developed a private <strong>mobile app</strong> in Flutter for their new tool used to boost worker productivity.'
           ],
           techStack: ['WordPress', 'SASS', 'Flutter']
         }
@@ -174,11 +206,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="flex flex-col md:flex-row relative">
+      <button 
+        onClick={() => handlePrint()} 
+        className="flex items-center mb-4 px-4 py-2 text-white rounded bg-[#2D3741]"
+      >
+        <Printer size={16} className="mr-2" />
+        Print as PDF
+      </button>
+      <div ref={printRef} className="print-no-shadow max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row relative"> { /* Print from here */ }
           
           {/* Profile Sidebar (absolute) */}
-          <div className="absolute bg-[#F6F6F6] flex w-full mt-8">
+          <div className="profile-sidebar absolute bg-[#F6F6F6] flex w-full mt-8">
             <div className="flex items-center md:w-1/3 justify-center">
               <img 
                 src={ProfileCV}
@@ -215,18 +254,17 @@ function App() {
           {/* Left Sidebar */}
           <div className="w-full md:w-1/3 bg-[#2D3741] text-white px-8 pt-[280px]">
             {/* Profile Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <User size={20} />
                 Profile
               </h2>
-              <p className="text-gray-300 text-[15px]" style={{ lineHeight: '130%' }}>
-                <strong>5+</strong> years of proven experience as a <strong>Full-Stack</strong> developer. Created/maintained more than <strong>10+</strong> web portals, <strong>15+</strong> mobile apps, with development achievements by the use of good practices, clean code, performance but the most important one, my ability to <strong>adapt</strong> to any technology in a <strong>record time</strong>. My dedication has resulted in learning and creating multiple side projects in <strong>3D</strong>, <strong>Blockchain</strong>, <strong>Mobile apps</strong>, <strong>AI</strong> and more.
-              </p>
+              <p className="text-gray-300 text-[15px]" style={{ lineHeight: '160%' }}>
+              <strong>5+ years</strong> Full-Stack developer specializing in web and mobile development. Built <strong>25+ applications</strong> with a track record of rapid technology adaptation. Passionate about exploring emerging technologies including <strong>3D</strong>, <strong>Blockchain</strong>, and <strong>AI</strong>.              </p>
             </section>
 
             {/* Hard Skills Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break pt-8">
               <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
                 <Code size={20} />
                 Hard Skills
@@ -301,20 +339,20 @@ function App() {
             </section>
 
             {/* Languages Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break pt-8">
               <div className="flex items-center gap-2 mb-4">
                 <Globe2 size={20} />
                 <h2 className="text-xl font-semibold">Languages</h2>
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-sm">
+                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-md">
                   <div className="px-1 py-1 rounded-lg flex bg-[#85FF00]"></div>
                   <div className='flex flex-col'>
                     <span className='font-bold'>English</span>
                     <span className='text-sm'>(Professional)</span>
                   </div>
                 </div>
-                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-sm">
+                <div className="flex items-center basis-1/2 gap-3 bg-[#D9D9D922] py-2 px-3 rounded-md">
                   <div className="px-1 py-1 rounded-lg flex bg-[#FF9900]"></div>
                   <div className='flex flex-col'>
                     <span className='font-bold'>Spanish</span>
@@ -325,7 +363,7 @@ function App() {
             </section>
 
             {/* Soft Skills Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break pt-8">
               <div className="flex items-center gap-2 mb-4">
                 <Handshake size={20} />
                 <h2 className="text-xl font-semibold">Soft Skills</h2>
@@ -333,25 +371,25 @@ function App() {
               <ul className="list-disc list-inside text-gray-300 text-[15px] space-y-2">
                 <li>Incredible ability to learn/adapt to any technology in record time 🏆</li>
                 <li> <strong>Creativity:</strong> wherever I go, my mind vibrates with creativity and innovation. 🧠</li>
-                <li> <strong>Empathy:</strong> I put myself in the consumer's shoes to develop the best possible UX (User Experience).</li>
-                <li> <strong>Teamwork:</strong> I love pair programming and teamwork where there is a goal and vision.</li>
+                <li> <strong>Empathy:</strong> I put myself in the consumer's perspective to develop the best possible UX (User Experience).</li>
+                <li> <strong>Teamwork:</strong> I love pair programming and teamwork when there is a goal and vision.</li>
               </ul>
             </section>
 
             {/* Education Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break pt-8">
               <div className="flex items-center gap-2 mb-4">
                 <GraduationCap size={20} />
                 <h2 className="text-xl font-semibold">Education</h2>
               </div>
               <ul className="list-disc list-inside text-gray-300 text-[15px] space-y-2">
-                <li>(scheduled to finish in 2025) Information Systems Technologist, in Antonio Jose Camacho’s university.</li>
-                <li>(2019) Corporación Educativa Adventista: High School degree with an emphasis on programming.</li>
+                <li>(scheduled to finish in 2025) Information Systems Technologist, in Antonio Jose Camacho's university.</li>
+                <li>(2019) Corporación Educativa Adventista: High School degree with emphasis on programming.</li>
               </ul>
             </section>
 
             {/* Professional Update Section */}
-            <section className="mb-8">
+            <section className="print-avoid-break pt-8">
               <div className="flex items-center gap-2 mb-4">
                 <LandPlot size={20} />
                 <h2 className="text-xl font-semibold">Professional Update</h2>
@@ -367,7 +405,7 @@ function App() {
           </div>
 
           {/* Right Sidebar */}
-          <div className="w-full md:w-2/3 px-8 pt-[280px] gap-12 flex flex-col">
+          <div className="w-full md:w-2/3 px-8 pt-[280px] flex flex-col">
 
             {/* Experience Section */}
             <section>
@@ -377,11 +415,14 @@ function App() {
               </h2>
               {
                 experiences.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-gray-200 pl-4 mt-8">
-                    <h3 className="text-xl font-semibold">{exp.company}</h3>
+                  <div key={index} className={`print-avoid-break border-l-2 border-gray-200 pl-4 ${index && 'pt-10'}`}>
+                    <div className="flex items-center">
+                      {exp.icon}
+                      <h3 className="text-xl font-semibold ml-2">{exp.company}</h3>
+                    </div>
                     {
                       exp.experience.map((role, idx) => (
-                        <div key={idx} className="mt-6">
+                        <div key={idx} className="print-avoid-break pt-6">
                           <p className="text-gray-500 mb-2"><span className="font-semibold text-gray-700">{role.position}</span> • {role.period}</p>
                           <ul className="list-disc list-inside text-gray-700 space-y-2">
                             {role.achievements.map((achievement, idx) => (
@@ -391,7 +432,7 @@ function App() {
                           { role.techStack.length > 0 && <p className="text-gray-500 text-[15px] mt-4">Tech Stack:</p> }
                           <div className="flex flex-wrap gap-2 mt-2">
                             {role.techStack.map((tech, idx) => (
-                              <span key={idx} className="px-3 py-1 bg-gray-100 rounded-[5px] text-sm">
+                              <span key={idx} className="px-3 py-1 bg-gray-100 rounded-[5px] text-sm text-gray-500 font-medium">
                                 {tech}
                               </span>
                             ))}
@@ -405,14 +446,14 @@ function App() {
             </section>
 
             {/* Side Projects */}
-            <section>
+            <section className='pt-8'>
               <h2 className="text-2xl font-bold text-[#2D3741] mb-6 flex items-center gap-2">
                 <Briefcase size={24} />
                 Side Projects
               </h2>
               {
                 sideProjects.map((sp, index) => (
-                  <div key={index} className="mt-8">
+                  <div key={index} className={`print-avoid-break ${index && 'pt-8'}`}>
                     <p className="text-lg text-gray-500 mb-2"><span className="font-semibold text-gray-700">{sp.projectName}</span> • {sp.period}</p>
                     <p className="text-[15px]" dangerouslySetInnerHTML={{ __html: sp.description }} />
                     { sp.techStack.length > 0 && <p className="text-gray-500 text-[15px] mt-4">Tech Stack:</p> }
@@ -429,7 +470,7 @@ function App() {
             </section>
 
             {/* Professional References */}
-            <section className='mb-8'>
+            <section className='py-8 print-avoid-break'>
               <h2 className="text-2xl font-bold text-[#2D3741] flex mb-6 items-center gap-2">
                 Professional References
               </h2>
