@@ -5,13 +5,15 @@ import AngularIcon from './assets/angular.svg';
 import AwsIcon from './assets/aws.svg';
 import CssIcon from './assets/css.svg';
 import HtmlIcon from './assets/html.svg';
-import JavascriptIcon from './assets/javascript.svg';
+import JavascriptIcon from './assets/javascript.png';
 import NodejsIcon from './assets/nodejs.svg';
 import PhpIcon from './assets/php.svg';
 import ReactIcon from './assets/react.svg';
 import SassIcon from './assets/sass.svg';
 import ThreejsIcon from './assets/threejs.svg';
 import TypescriptIcon from './assets/typescript.svg';
+import SolidityIcon from './assets/solidity.svg';
+import LaravelIcon from './assets/laravel.svg';
 import ProfileCV from './assets/profilecv.jpg';
 import WeKallShortLogo from './assets/wekall-short-logo.svg';
 import SimplicaShortLogo from './assets/simplica-short-logo.png';
@@ -270,35 +272,35 @@ function App() {
                 Hard Skills
               </h2>
               <div className="flex flex-wrap gap-2">
-                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
                   {/* <JavascriptIcon /> */}
                   <img src={JavascriptIcon} alt="JavascriptIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium'>JavaScript</span>
                 </div>
-                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
                   {/* <TypescriptIcon /> */}
                   <img src={TypescriptIcon} alt="TypescriptIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium'>TypeScript</span>
                 </div>
-                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
                   {/* <PhpIcon /> */}
                   <img src={PhpIcon} alt="PhpIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium'>PHP</span>
                 </div>
-                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
                   {/* <HtmlIcon /> */}
                   <img src={HtmlIcon} alt="HtmlIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium'>HTML</span>
                 </div>
-                <div className="flex items-center gap-1 px-1 py-[2px] bg-gray-100 rounded-[5px]">
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
                   {/* <CssIcon /> */}
                   <img src={CssIcon} alt="CssIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium'>CSS</span>
                 </div>
-                {/* <div className="flex items-center gap-2">
-                  <BrandSolidity size={20} />
-                  <span>Solidity</span>
-                </div> */}
+                <div className="flex items-center gap-1 px-2 py-[2px] bg-gray-100 rounded-[5px]">
+                  <img src={SolidityIcon} alt="CssIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium'>Solidity</span>
+                </div>
               </div>
               <h2 className="flex items-center gap-2 text-xl font-semibold mb-4 mt-8">
                 <Code size={20} />
@@ -334,6 +336,11 @@ function App() {
                   {/* <ThreejsIcon /> */}
                   <img src={ThreejsIcon} alt="ThreejsIcon" style={{ maxHeight: 16 }} />
                   <span className='text-gray-700 text-sm font-medium text-white'>ThreeJS</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-1 py-[2px] bg-black rounded-[5px]">
+                  {/* <LaravelIcon /> */}
+                  <img src={LaravelIcon} alt="LaravelIcon" style={{ maxHeight: 16 }} />
+                  <span className='text-gray-700 text-sm font-medium text-white'>Laravel</span>
                 </div>
               </div>
             </section>
